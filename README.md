@@ -20,6 +20,5 @@ conda activate your_env_name
 
 Run inference using:
 ```python
-    python3 ./inference.py <input_path> <output_path>
+    python3 ./inference.py /path/to/your/audio_or_dir /path/to/save/results.json
 ```
-input_path can be a dir containing mixes or path to mixes

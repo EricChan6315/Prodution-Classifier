@@ -58,8 +58,8 @@ def inference(args):
                 print(pred_label)
                 label += pred_label / len(mixes)
 
-        pred_results[os.path.basename(audio_path)] = "good" if label > 0.5 else "bad"
-        print(f"{os.path.basename(audio_path)}: {pred_results[os.path.basename(audio_path)]} (score={label:.4f})")
+        pred_results[audio_path] = "good" if label > 0.5 else "bad"
+        print(f"{audio_path}: {pred_results[audio_path]} (score={label:.4f})")
 
     with open(args.output_path, "w") as f:
         json.dump(pred_results, f, indent=2)
