@@ -1,0 +1,42 @@
+data:
+  train_data_path: /data/ssd0/zhanzhongrui/moisesdb-deg
+  valid_data_path: /data/ssd0/zhanzhongrui/moisesdb-deg
+  test_data_path: /data/ssd0/zhanzhongrui/moisesdb-deg
+
+  duration_sec: 10
+  sr: 24000 # 24kHz for MERT-v1-95M
+
+  # train_data_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/train
+  # valid_data_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/valid
+  # test_data_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/valid
+
+  # duration_sec: 10
+  # sr: 24000 # 24kHz for MERT-v1-95M
+
+  # train_metadata_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/meta/normalized_meta.json
+  # valid_metadata_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/meta/normalized_meta.json
+  # test_metadata_path: /data/ssd0/zhanzhongrui/reaMIXed_clean/reaMIXed/meta/normalized_meta.json
+
+model:
+  proj_num_layer: 5
+  proj_ln: True
+  proj_act_fn: "gelu"
+  proj_dropout: 0
+  output_dim: 1
+  binary_classification: True
+  freeze_encoder: False
+device: cuda
+outdir: ./model_ckpt/model/
+inference:
+  batch_size: 1
+  num_workers: 0
+  ckpt_path: ./model_ckpt/model/best_acc_params.pth
+train:
+  epochs: 100
+  lr: 0.00005
+  weight_decay: 0.001
+  batch_size: 8
+  lr_patience: 2
+  num_workers: 4
+  log_interval: 50
+  # scheduler: cosine_schedule_with_warmup #ExponentialLR #OneCycleLR cosine_schedule_with_warmup ReduceLROnPlateau 
