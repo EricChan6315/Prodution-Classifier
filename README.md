@@ -9,7 +9,7 @@ To set up the required environment, ensure you have [Conda](https://docs.conda.i
 
 ```bash
 # Create the environment from the requirements file
-conda create --name your_env_name --file requirements.txt
+conda env create -f environment.yml
 
 # Activate the environment
 conda activate your_env_name
@@ -22,3 +22,4 @@ Run inference using:
 ```python
     python3 ./inference.py <input_path> <output_path>
 ```
+input_path can be a dir containing mixes or path to mixes

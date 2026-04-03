@@ -25,7 +25,7 @@ model:
   output_dim: 1
   binary_classification: True
   freeze_encoder: False
-device: cuda
+device: cpu
 outdir: ./model_ckpt/model/
 inference:
   batch_size: 1
